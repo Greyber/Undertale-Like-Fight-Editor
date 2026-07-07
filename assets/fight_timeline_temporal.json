@@ -1,0 +1,92 @@
+[
+  {
+	"type": "SPAWN_NPC",
+	"time": 1,
+	"npc_name": "yae_miko",
+	"position": {
+	  "x": 255,
+	  "y": 165
+	}
+  },
+  {
+	"type": "WRITE_DIALOGUE",
+	"time": 2,
+	"text": "Que crees que haces?"
+  },
+  {
+	"type": "SET_DIALOGUE_POSITION",
+	"time": 2,
+	"position": {
+	  "x": 350,
+	  "y": 66
+	}
+  },
+  {
+	"type": "CHANGE_ARENA",
+	"time": 4,
+	"size": {
+	  "x": 500,
+	  "y": 200
+	},
+	"position": {
+	  "x": 360,
+	  "y": 381
+	}
+  },
+  {
+	"type": "SET_PLAYER_POSITION",
+	"time": 4.4,
+	"position": {
+	  "x": 600,
+	  "y": 500
+	}
+  },
+  {
+	"type": "START_FIGHT_MENU",
+	"time": 4.5,
+  },
+  {
+	"type": "WRITE_DIALOGUE",
+	"time": 4.5,
+	"text": " "
+  },
+  {
+	"type": "SPAWN_NPC",
+	"time": 5,
+	"npc_name": "yae_miko_2",
+	"position": {
+	  "x": 950,
+	  "y": 165
+	}
+  },
+  {
+	"type": "SET_DIALOGUE_POSITION",
+	"time": 5,
+	"position": {
+	  "x": 640,
+	  "y": 66
+	}
+  },
+  {
+	"type": "WRITE_DIALOGUE",
+	"time": 5.4,
+	"text": "Cual es tu problema?"
+  },
+  {
+	"type": "WRITE_DIALOGUE",
+	"time": 7.1,
+	"text": "Quieres pelear?"
+  },
+  {
+	"type": "CHANGE_ARENA",
+	"time": 8,
+	"size": {
+	  "x": 470,
+	  "y": 483
+	},
+	"position": {
+	  "x": 43,
+	  "y": 95
+	}
+  }
+]

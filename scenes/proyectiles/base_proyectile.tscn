@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cbnayoc36om4v"]
+
+[ext_resource type="Script" uid="uid://8agjsdrn28kk" path="res://scripts/proyectiles_behavior/base_proyectile.gd" id="1_qkalo"]
+
+[node name="BaseProyectile" type="Node2D" unique_id=1175787049]
+script = ExtResource("1_qkalo")

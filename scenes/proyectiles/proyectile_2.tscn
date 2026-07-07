@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://be4ya6w2as7l4"]
+
+[ext_resource type="Script" uid="uid://c4utdcx8aohvl" path="res://scripts/proyectiles_behavior/proyectile_2.gd" id="1_0my7c"]
+
+[sub_resource type="Gradient" id="Gradient_qf2va"]
+colors = PackedColorArray(1, 1, 1, 1, 0.8774772, 0.3310617, 0.20459515, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0my7c"]
+gradient = SubResource("Gradient_qf2va")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Proyectile2" type="Node2D" unique_id=1774136654]
+script = ExtResource("1_0my7c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1938162405]
+texture = SubResource("GradientTexture2D_0my7c")

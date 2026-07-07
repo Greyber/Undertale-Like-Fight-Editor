@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bdjg2u0g7e0t4"]
+
+[ext_resource type="Script" uid="uid://brye8epmlv7kn" path="res://scripts/managers/character_text_manager.gd" id="1_jcaxu"]
+
+[node name="TextRenderer" type="Node2D" unique_id=104651560]
+script = ExtResource("1_jcaxu")
+
+[node name="Text" type="Label" parent="." unique_id=397824179]
+offset_right = 40.0
+offset_bottom = 23.0

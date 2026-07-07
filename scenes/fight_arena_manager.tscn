@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dh6qpgw1bxecq"]
+
+[ext_resource type="Script" uid="uid://cmr8a2usp8ttu" path="res://scripts/fight_code/fight_arena_manager.gd" id="1_6pbd4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8cdui"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6pbd4"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yu7fe"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2gyhu"]
+
+[node name="FightArenaManager" type="Node2D" unique_id=1300056682]
+script = ExtResource("1_6pbd4")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1755112507]
+offset_right = 3.23
+color = Color(0.021913236, 0.10966752, 0.13283953, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1342281431]
+
+[node name="LeftBoundary" type="StaticBody2D" parent="." unique_id=716953143]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary" unique_id=1745719928]
+shape = SubResource("WorldBoundaryShape2D_8cdui")
+
+[node name="RightBoundary" type="StaticBody2D" parent="." unique_id=1977020859]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary" unique_id=960084658]
+shape = SubResource("WorldBoundaryShape2D_6pbd4")
+
+[node name="TopBoundary" type="StaticBody2D" parent="." unique_id=644409772]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBoundary" unique_id=70361156]
+shape = SubResource("WorldBoundaryShape2D_yu7fe")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="." unique_id=158753039]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBoundary" unique_id=2048424987]
+shape = SubResource("WorldBoundaryShape2D_2gyhu")

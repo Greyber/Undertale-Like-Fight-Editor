@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dxvbt0a4g800b"]
+
+[ext_resource type="Script" uid="uid://bp57ybgkko002" path="res://scripts/fight_code/fight_character_manager.gd" id="1_x65yx"]
+
+[node name="FightCharacterManager" type="Node2D" unique_id=921733944 groups=["main"]]
+script = ExtResource("1_x65yx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1612828094]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c22fmum0mor4f"]
+
+[ext_resource type="Script" uid="uid://dafia2nxfl5a3" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bnuepnhqm8bk6" path="res://scenes/player.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://crh7g4l8p04fh" path="res://scenes/managers/timeline_manager.tscn" id="5_tbgi4"]
+
+[node name="Main" type="Node2D" unique_id=1129719108]
+script = ExtResource("1_o5qli")
+
+[node name="BackGround" type="ColorRect" parent="." unique_id=1791641727]
+z_index = -100
+offset_right = 1152.0
+offset_bottom = 651.0
+color = Color(0.1882353, 0.22745098, 0.3529412, 1)
+
+[node name="Player" parent="." unique_id=655997638 instance=ExtResource("3_sugp2")]
+visible = false
+z_index = 1
+position = Vector2(451, 240)
+
+[node name="FightManager" parent="." unique_id=1025110507 instance=ExtResource("5_tbgi4")]
+
+[node name="PlayerHealth" type="Label" parent="." unique_id=1889034879]
+offset_left = 15.0
+offset_top = 27.0
+offset_right = 100.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 33
+text = "100"
