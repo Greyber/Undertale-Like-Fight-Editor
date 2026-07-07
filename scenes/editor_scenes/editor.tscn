@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dawf2wuvv76yn"]
+
+[ext_resource type="Script" uid="uid://cywodnqa2khix" path="res://scripts/editor_scripts/editor_main.gd" id="1_ekl7j"]
+
+[node name="Editor" type="Node2D" unique_id=132895820]
+script = ExtResource("1_ekl7j")
+
+[node name="AtributesMenu" type="Control" parent="." unique_id=1998084878]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 928.0
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="background" type="ColorRect" parent="AtributesMenu" unique_id=1529757976]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32156864, 0.32156864, 0.3529412, 1)
+
+[node name="TextEdit" type="TextEdit" parent="AtributesMenu" unique_id=1603239185]
+z_index = 2
+layout_mode = 1
+offset_left = 8.0
+offset_top = 54.0
+offset_right = 215.0
+offset_bottom = 134.0
+
+[node name="Timeline" type="Control" parent="." unique_id=2057828277]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="Timeline" unique_id=2002212253]
+layout_mode = 0
+offset_top = 380.0
+offset_right = 928.0
+offset_bottom = 649.0
+color = Color(0.16470589, 0.16470589, 0.22745098, 1)

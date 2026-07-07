@@ -17,7 +17,6 @@ func _ready() -> void:
 func set_timeline(new_timeline: Array) -> void:
 	timeline = new_timeline
 	sort_timeline()
-	print(timeline)
 	
 func sort_timeline() -> void:
 	timeline.sort_custom(func(a, b): return a['time'] < b['time'])

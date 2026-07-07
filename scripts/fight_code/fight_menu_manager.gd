@@ -18,15 +18,16 @@ func enable_action_buttons() -> void:
 	$ButtonsContainer.visible = true
 
 func enable_answer_buttons(answers_options : Array) -> void:
+	var ans_container = $AnswersButtonsContainer
 	var i : int = 0
 	for answer_option in answers_options:
 		var button : ButtonWihID = ButtonWihID.new()
 		button.id = i
 		button.text = answer_option
 		button.on_pressed.connect(_on_answer_button_pressed)
-		$AnswersButtonsContainer.add_child(button)
+		ans_container.add_child(button)
 		i += 1
-	$AnswersButtonsContainer.visible = true
+	ans_container.visible = true
 	
 func _on_answer_button_pressed(id:int) -> void:
 	pressed_answer_button_id = id
