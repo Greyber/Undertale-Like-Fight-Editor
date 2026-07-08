@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bo8afbwix1vty"]
+
+[ext_resource type="Script" uid="uid://cihvvk3iv6g3f" path="res://scripts/editor_scripts/time_line.gd" id="1_rd057"]
+
+[node name="TimeLine" type="Control" unique_id=558596005]
+custom_minimum_size = Vector2(1152, 220)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 40.0
+script = ExtResource("1_rd057")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=249793460]
+custom_maximum_size = Vector2(1152, -1)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 210.0
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=321599676]
+custom_minimum_size = Vector2(50, 200)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer/Control" unique_id=1532293887]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=2012849604]
+custom_minimum_size = Vector2(1098, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ScrollContainer" unique_id=1864502148]
+layout_mode = 2
+theme_override_constants/separation = 1
