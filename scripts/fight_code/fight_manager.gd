@@ -7,19 +7,19 @@ enum States {
 	MENU
 }
 
-var timeline :Array = []
+var timeline : FightData
 var time  : float = 0
 var state : States = States.RUNNING
 
 func _ready() -> void:
 	EventManager.CONTINUE_TIMELINE.connect(run)
 	
-func set_timeline(new_timeline: Array) -> void:
+func set_timeline(new_timeline: FightData) -> void:
 	timeline = new_timeline
 	sort_timeline()
 	
 func sort_timeline() -> void:
-	timeline.sort_custom(func(a, b): return a['time'] < b['time'])
+	timeline.data.sort_custom(func(a, b): return a['time'] < b['time'])
 
 func _process(delta: float) -> void:
 	update_timeline(delta)
@@ -27,12 +27,12 @@ func _process(delta: float) -> void:
 func update_timeline(delta) -> void :
 	if state == States.RUNNING:
 		time += delta
-		for event in timeline.duplicate():
+		for event in timeline.data.duplicate():
 			if time < event['time']: return
 			match event['type']:
 				Globals.EventTypes.SPAWN_NPC:
 					$FightCharacterManager.spawn_npc(event['npc_name'])
-					$FightCharacterManager.move_npc(event['position'])
+					$FightCharacterManager.move_npc(event['npc_position'])
 				Globals.EventTypes.SPAWN_PROYECTILE:
 					PoolManager.request_queue(event['entity'])
 				Globals.EventTypes.PAUSE:
@@ -63,7 +63,7 @@ func update_timeline(delta) -> void :
 					if $FightMenu.pressed_answer_button_id == event['answer_id']:
 						time = event['new_time']
 					
-			timeline.erase(event)
+			timeline.data.erase(event)
 			
 	elif state == States.WAITING:
 		pass

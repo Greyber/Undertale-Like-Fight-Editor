@@ -5,7 +5,7 @@ extends Node2D
 func _ready() -> void:
 	reset_values()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func reset_values() -> void:

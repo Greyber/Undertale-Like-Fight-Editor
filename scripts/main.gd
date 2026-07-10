@@ -2,7 +2,10 @@ extends Node2D
 
 
 func _ready() -> void:
-	var fight_data = JsonLoader.load_fight_data("res://assets/fights_data/fight_timeline_for_tests.json")
+	var path : String = "res://assets/fights_data/fight_data.tres"
+	var fight_data = ResourceLoader.load(path) as FightData
+	if fight_data == null: print('error')
+	print(fight_data.id)
 	$FightManager.set_timeline(fight_data)
 	Globals.player_health_label = $PlayerHealth
 

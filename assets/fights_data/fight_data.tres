@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FightData" format=3 uid="uid://1a2t03i86tyo"]
+
+[ext_resource type="Script" uid="uid://dkoxi1apsey1" path="res://scripts/editor_scripts/fight_data.gd" id="1_ty16g"]
+
+[resource]
+script = ExtResource("1_ty16g")
+data = [{
+"npc_name": "yae miko",
+"npc_position": Vector2(100, 100),
+"time": 0.5,
+"type": 1
+}]
+id = 10

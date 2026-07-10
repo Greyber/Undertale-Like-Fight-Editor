@@ -13,6 +13,7 @@ var offset : float = 0
 var events : Array = []
 var dragging : bool = false
 var event_type_to_create = Globals.EventTypes.SPAWN_NPC
+var lines : Array = []
 
 var EVENT_DATA_FORM  : Dictionary = {
 	Globals.EventTypes.SPAWN_PROYECTILE:{
@@ -23,21 +24,45 @@ var EVENT_DATA_FORM  : Dictionary = {
 		"label": "spawn_npc",
 		"properties": [{"name":"npc_name","type": "text", "value":""}, {"name":"npc_position","type": "Vector2", "value":Vector2.ZERO}]
 	},
+	Globals.EventTypes.PAUSE: {
+		"label": "pause",
+		"properties": [{"name":"npc_name","type": "text", "value":""}, {"name":"npc_position","type": "Vector2", "value":Vector2.ZERO}]
+	},
+	Globals.EventTypes.MENU: {
+		"label": "menu",
+		"properties": [{"name":"npc_name","type": "text", "value":""}, {"name":"npc_position","type": "Vector2", "value":Vector2.ZERO}]
+	},
+	Globals.EventTypes.CHANGE_ARENA:{
+		'label':"change_area",
+		"properties": [{"name":"arena_position","type": "Vector2", "value":Vector2.ZERO}, {"name":"arena_size","type": "Vector2", "value":Vector2.ZERO}]
+	},
 	Globals.EventTypes.SET_PLAYER_POSITION:{
 		"label": "set_player_position",
 		"properties": [{"name":"player_position","type": "Vector2", "value":Vector2.ZERO}]
-	},
-	Globals.EventTypes.SET_DIALOGUE_POSITION:{
-		"label": "set_dialogue_position",
-		"properties": [{"name":"dialogue_position","type": "Vector2", "value":Vector2.ZERO}]
 	},
 	Globals.EventTypes.WRITE_DIALOGUE:{
 		"label": "write_dialogue",
 		"properties": [{"name":"dialogue_content","type": "text", "value":""}]
 	},
-	Globals.EventTypes.CHANGE_ARENA:{
-		'label':"change_area",
-		"properties": [{"name":"arena_position","type": "Vector2", "value":Vector2.ZERO}, {"name":"arena_size","type": "Vector2", "value":Vector2.ZERO}]
+	Globals.EventTypes.SET_DIALOGUE_POSITION:{
+		"label": "set_dialogue_position",
+		"properties": [{"name":"dialogue_position","type": "Vector2", "value":Vector2.ZERO}]
+	},
+	Globals.EventTypes.START_FIGHT_MENU:{
+		"label": "start_fight_menu",
+		"properties": [{"name":"npc_name","type": "text", "value":""}, {"name":"npc_position","type": "Vector2", "value":Vector2.ZERO}]
+	},
+	Globals.EventTypes.SHOW_DIALOGUE_ANSWERS:{
+		"label": "show_dialogue_answers",
+		"properties": [{"name":"npc_name","type": "text", "value":""}, {"name":"npc_position","type": "Vector2", "value":Vector2.ZERO}]
+	},
+	Globals.EventTypes.SET_TIMELINE_TIME:{
+		"label": "set_timeline_time",
+		"properties": [{"name":"npc_name","type": "text", "value":""}, {"name":"npc_position","type": "Vector2", "value":Vector2.ZERO}]
+	},
+	Globals.EventTypes.JUMP_IF_ANSWER:{
+		"label": "jump_if_answer",
+		"properties": [{"name":"npc_name","type": "text", "value":""}, {"name":"npc_position","type": "Vector2", "value":Vector2.ZERO}]
 	}
 }
 
@@ -55,14 +80,14 @@ func _input(event: InputEvent) -> void:
 		add_event(event.position)
 
 func add_event(_position : Vector2) -> void:
-	var mpos_relative = _position.x - $HBoxContainer/TimeLineInner.position.x + $HBoxContainer/TimeLineInner.scroll_horizontal
+	var mposx_relative = _position.x - $HBoxContainer/TimeLineInner.position.x + $HBoxContainer/TimeLineInner.scroll_horizontal
 	var line_index : int = int((_position.y - position.y + $HBoxContainer/TimeLineInner.scroll_vertical)/ LINE_H)
 	if line_index < 0: return 
 	var line : Container = $HBoxContainer/TimeLineInner/VBoxContainer.get_children()[line_index]
 	var event : Event = event_scene.instantiate()
 	event.id = id_increment
 	id_increment += 1
-	event.set_time(mpos_relative / 100)
+	event.set_time(mposx_relative / 100)
 	event.type = index_to_event_type[line_index]
 	event.data = EVENT_DATA_FORM[event.type]['properties'].duplicate()
 	Globals.event_just_created = true
@@ -100,10 +125,11 @@ func create_lines() -> void:
 	var i : int = 0
 	for event in EVENT_DATA_FORM.keys():
 		var container : Container = Container.new()
-		var panel : Panel = Panel.new()
 		container.custom_minimum_size = Vector2(LINE_W, LINE_H)
+		var panel : Panel = Panel.new()
 		panel.custom_minimum_size = container.custom_minimum_size
 		container.add_child(panel)
 		$HBoxContainer/TimeLineInner/VBoxContainer.add_child(container)
 		index_to_event_type[i] = event
+		lines.append(container)
 		i += 1
