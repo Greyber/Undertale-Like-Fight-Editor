@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bu1b8l3of0122"]
+
+[ext_resource type="Script" uid="uid://2j5rl25vv7qo" path="res://scripts/editor_scripts/atributes_menu.gd" id="1_jfwif"]
+[ext_resource type="PackedScene" uid="uid://dkhyix2m837c1" path="res://scenes/editor_scenes/time_input_field.tscn" id="2_iyf8k"]
+
+[node name="AtributesMenu" type="Control" unique_id=1930480682]
+layout_mode = 3
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jfwif")
+
+[node name="background" type="ColorRect" parent="." unique_id=153431400]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.39996338
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19934958, 0.19933736, 0.22148514, 1)
+
+[node name="TimeInputField" parent="." unique_id=1341594398 instance=ExtResource("2_iyf8k")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 230.0
+offset_bottom = 80.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1099323743]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.123
+anchor_right = 1.0
+anchor_bottom = 0.123
+offset_top = 0.29599762
+offset_bottom = 301.384
+grow_horizontal = 2

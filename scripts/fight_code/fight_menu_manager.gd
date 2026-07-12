@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if player_attacking:
-		$AttackUiContainer/Cursor.position.x = clamp($AttackUiContainer/Cursor.position.x+100*delta, 0, 300)
+		$AttackUiContainer/Cursor.position.x = clamp($AttackUiContainer/Cursor.position.x+200*delta, 0, 300)
 		if Input.is_action_just_pressed("click"):
 			EventManager.ON_CHARACTER_TAKE_DAMAGE.emit()
 			disable()

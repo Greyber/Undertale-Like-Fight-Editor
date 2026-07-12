@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="FightData" format=3]
+
+[ext_resource type="Script" path="res://scripts/editor_scripts/fight_data.gd" id="1_nnxvf"]
+
+[resource]
+script = ExtResource("1_nnxvf")
+data = [{
+"data": [{
+"name": "npc_name",
+"type": "text",
+"value": "yae miko"
+}, {
+"name": "npc_position",
+"type": "Vector2",
+"value": Vector2(539, 230)
+}],
+"time": 1.0,
+"type": 1
+}, {
+"data": [{
+"name": "npc_name",
+"type": "text",
+"value": "yae miko 2"
+}, {
+"name": "npc_position",
+"type": "Vector2",
+"value": Vector2(539, 230)
+}],
+"time": 2.6,
+"type": 1
+}, {
+"data": [{
+"name": "dialogue_content",
+"type": "text",
+"value": "Ey you bro"
+}],
+"time": 2.0,
+"type": 2
+}, {
+"data": [{
+"name": "dialogue_content",
+"type": "text",
+"value": "Cual es tu problema?"
+}],
+"time": 2.6,
+"type": 2
+}, {
+"data": [{
+"name": "dialogue_position",
+"type": "Vector2",
+"value": Vector2(640, 110)
+}],
+"time": 1.7000000000000002,
+"type": 3
+}, {
+"data": [{
+"name": "arena_position",
+"type": "Vector2",
+"value": Vector2(61, 391)
+}, {
+"name": "arena_size",
+"type": "Vector2",
+"value": Vector2(1020, 190)
+}],
+"time": 1.5,
+"type": 4
+}, {
+"data": [{
+"name": "arena_position",
+"type": "Vector2",
+"value": Vector2(53, 43)
+}, {
+"name": "arena_size",
+"type": "Vector2",
+"value": Vector2(388, 585)
+}],
+"time": 3.0,
+"type": 4
+}, {
+"data": [{
+"name": "player_position",
+"type": "Vector2",
+"value": Vector2(528, 500)
+}],
+"time": 2.0,
+"type": 5
+}, {
+"data": [],
+"time": 2.5,
+"type": 6
+}]

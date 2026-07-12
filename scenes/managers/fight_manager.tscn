@@ -105,7 +105,7 @@ libraries/ = SubResource("AnimationLibrary_siq8t")
 
 [node name="SlashAnimation" type="AnimatedSprite2D" parent="FightCharacterManager" unique_id=1517498290]
 visible = false
-position = Vector2(134, 121)
+position = Vector2(424, 140)
 sprite_frames = SubResource("SpriteFrames_yb1cc")
 animation = &"new_animation"
 frame_progress = 0.57272327
@@ -118,7 +118,7 @@ script = ExtResource("4_siq8t")
 [node name="ButtonsContainer" type="Node2D" parent="FightMenu" unique_id=857750755]
 visible = false
 z_index = 2
-position = Vector2(16, 296)
+position = Vector2(-27, 295)
 
 [node name="AttackButton" type="Button" parent="FightMenu/ButtonsContainer" unique_id=2068997463]
 offset_left = 400.0

@@ -35,22 +35,16 @@ func update_timeline(delta) -> void :
 					$FightCharacterManager.move_npc(event['npc_position'])
 				Globals.EventTypes.SPAWN_PROYECTILE:
 					PoolManager.request_queue(event['entity'])
-				Globals.EventTypes.PAUSE:
-					pass
-				Globals.EventTypes.MENU:
-					pass
 				Globals.EventTypes.CHANGE_ARENA:
-					$FightArenaManager.set_arena_size(event['size'])
-					$FightArenaManager.set_arena_position(event['position'])
+					$FightArenaManager.set_arena_size(event['arena_size'])
+					$FightArenaManager.set_arena_position(event['arena_position'])
 				Globals.EventTypes.SET_PLAYER_POSITION:
-					Globals.player.set_global_position(event['position'])
+					Globals.player.set_global_position(event['player_position'])
 					Globals.player.visible = true
 				Globals.EventTypes.WRITE_DIALOGUE:
-					$TextRenderer.start_writing(event['text'])
+					$TextRenderer.start_writing(event['dialogue_content'])
 				Globals.EventTypes.SET_DIALOGUE_POSITION:
-					$TextRenderer.set_text_position(event['position'])
-				Globals.EventTypes.PAUSE:
-					pause()
+					$TextRenderer.set_text_position(event['dialogue_position'])
 				Globals.EventTypes.START_FIGHT_MENU:
 					$FightMenu.enable_action_buttons()
 					pause()

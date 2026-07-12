@@ -2,16 +2,34 @@
 
 [ext_resource type="Script" uid="uid://dafia2nxfl5a3" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bnuepnhqm8bk6" path="res://scenes/player.tscn" id="3_sugp2"]
-[ext_resource type="PackedScene" uid="uid://crh7g4l8p04fh" path="res://scenes/managers/timeline_manager.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://crh7g4l8p04fh" path="res://scenes/managers/fight_manager.tscn" id="5_tbgi4"]
+
+[sub_resource type="Gradient" id="Gradient_jyhfs"]
+colors = PackedColorArray(0.052795477, 4.813075e-05, 0.18053657, 1, 1, 0.78431374, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kddjp"]
+gradient = SubResource("Gradient_jyhfs")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
 
 [node name="Main" type="Node2D" unique_id=1129719108]
 script = ExtResource("1_o5qli")
 
-[node name="BackGround" type="ColorRect" parent="." unique_id=1791641727]
+[node name="BackGround" type="Control" parent="." unique_id=272386526]
 z_index = -100
+layout_mode = 3
+anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 651.0
-color = Color(0.1882353, 0.22745098, 0.3529412, 1)
+
+[node name="TextureRect" type="TextureRect" parent="BackGround" unique_id=1600793952]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_kddjp")
 
 [node name="Player" parent="." unique_id=655997638 instance=ExtResource("3_sugp2")]
 visible = false

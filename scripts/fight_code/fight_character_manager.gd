@@ -1,6 +1,6 @@
 extends Node2D
 
-var npcs_images : Dictionary = {'yae miko':preload("res://assets/yae miko.png"), 'yae_miko_2':preload("res://assets/yae miko 2.png")}
+var npcs_images : Dictionary = {'yae miko':preload("res://assets/yae miko.png"), 'yae miko 2':preload("res://assets/yae miko 2.png")}
 var target_position = Vector2.ZERO
 var current_npc : String = ''
 var can_npc_dodge : bool = true
