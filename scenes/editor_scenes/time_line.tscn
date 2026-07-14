@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bo8afbwix1vty"]
 
-[ext_resource type="Script" uid="uid://cihvvk3iv6g3f" path="res://scripts/editor_scripts/time_line.gd" id="1_rd057"]
+[ext_resource type="Script" uid="uid://cihvvk3iv6g3f" path="res://scripts/editor_scripts/timeline.gd" id="1_rd057"]
 
 [node name="TimeLine" type="Control" unique_id=558596005]
 custom_minimum_size = Vector2(922, 220)

@@ -15,12 +15,18 @@ func _process(delta: float) -> void:
 		$Character.position = lerp($Character.position, target_position, 10 * delta)
 
 func spawn_npc(npc_name) -> void:
+	if not npc_name in npcs_images: return
 	current_npc = npc_name
 	$Character.texture = npcs_images[npc_name]
 	
 func move_npc(pos : Vector2, speed: float = 10.0) -> void:
 	target_position = pos
-	movement_speed = speed 
+	movement_speed = speed
+
+func set_instant(npc_name, npc_position):
+	spawn_npc(npc_name)
+	target_position = npc_position
+	$Character.position = npc_position 
 
 func take_damage() -> void:
 	$SlashAnimation.visible = true

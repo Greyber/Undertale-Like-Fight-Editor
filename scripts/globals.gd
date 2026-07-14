@@ -22,3 +22,5 @@ var arena_size : Vector2
 var arena_position : Vector2
 var player : CharacterBody2D
 var player_health_label : Label
+
+var selected_event : Event

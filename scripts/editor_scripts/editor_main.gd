@@ -3,7 +3,6 @@ extends Control
 var fight_data : FightData = FightData.new()
 var fight_data_editor : FightData = FightData.new()
 
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("save"):
 		export_data()
@@ -34,15 +33,5 @@ func import_data() -> void:
 	for event in data.data:
 		$TimeLine.add_event(Vector2(event['type'], event['time']), true, event['data'])
 		
-
-
 func _on_import_button_pressed() -> void:
 	import_data()
-
-func _on_measure_size_button_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		$RectHelper.process_mode = Node.PROCESS_MODE_ALWAYS
-		$RectHelper.visible = true
-	else:
-		$RectHelper.process_mode = Node.PROCESS_MODE_DISABLED
-		$RectHelper.visible = false

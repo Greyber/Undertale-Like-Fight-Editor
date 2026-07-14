@@ -1,12 +1,11 @@
 extends Control
 
-
 var event_scene : PackedScene = preload("res://scenes/editor_scenes/event.tscn")
 
 var id_increment = 0
 
 const LINE_H  : int = 50
-var LINE_W : int = 2000
+const  LINE_W : int = 2000
 
 var zoom : float = 1
 var offset : float = 0
@@ -18,7 +17,7 @@ var lines : Array = []
 var EVENT_DATA_FORM  : Dictionary = {
 	Globals.EventTypes.SPAWN_PROYECTILE:{
 		"label" : "spawn_proyectile",
-		"properties": [{"name":"npc_position","type": "Vector2", "value":Vector2.ZERO}]
+		"properties": [{"name":"npc_position","type": "selector", "value":""}]
 	},
 	Globals.EventTypes.SPAWN_NPC:{
 		"label": "spawn_npc",
@@ -74,7 +73,7 @@ func add_event(_position : Vector2, _is_index : bool = false, _data = null) -> v
 	var time : float
 	var line_index : int
 	var data : Array
-	
+
 	if _is_index:
 		line_index = int(_position.x)
 		time = _position.y
@@ -84,7 +83,6 @@ func add_event(_position : Vector2, _is_index : bool = false, _data = null) -> v
 		line_index = int((_position.y - position.y + $HBoxContainer/TimeLineInner.scroll_vertical)/ LINE_H)
 		if line_index < 0: return
 		data = EVENT_DATA_FORM[line_index]['properties']
-		
 
 	var event : Event = event_scene.instantiate()
 	event.id = id_increment
@@ -94,15 +92,10 @@ func add_event(_position : Vector2, _is_index : bool = false, _data = null) -> v
 	
 	var line : Container = $HBoxContainer/TimeLineInner/VBoxContainer.get_children()[line_index]
 	line.add_child(event)
+	events.append(event)
 	
 	id_increment += 1
-	Globals.event_just_created = true
-	
-func update_events_local_positions() -> void:
-	for event in events:
-		event.position.x = global_to_local(event.time)
-		event.position.y = 380
-		
+
 func update_zoom(new_zoom : float) -> void:
 	var center = local_to_global(get_viewport_rect().size.x/2)
 	zoom = max(0.1, zoom + new_zoom)
@@ -127,7 +120,6 @@ func create_side_bar() -> void:
 	$HBoxContainer/SideBar/VBoxContainer.custom_minimum_size.y = 6 * LINE_H + 5 * 5 + 10
 
 func create_lines() -> void:
-	var i : int = 0
 	for event in EVENT_DATA_FORM.keys():
 		var container : Container = Container.new()
 		container.custom_minimum_size = Vector2(LINE_W, LINE_H)
@@ -136,4 +128,3 @@ func create_lines() -> void:
 		container.add_child(panel)
 		$HBoxContainer/TimeLineInner/VBoxContainer.add_child(container)
 		lines.append(container)
-		i += 1
