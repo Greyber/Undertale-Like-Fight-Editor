@@ -1,0 +1,15 @@
+[gd_resource type="Theme" format=3 uid="uid://dvhvmg2jgb40o"]
+
+[ext_resource type="FontFile" uid="uid://fd23f461g3w7" path="res://assets/fonts/04B_30__.TTF" id="1_13l52"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15hc4"]
+bg_color = Color(0.6595663, 0.00014593244, 0.5953664, 1)
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18345428, 6.016344e-06, 0.14921027, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_right = 10
+
+[resource]
+Button/fonts/font = ExtResource("1_13l52")
+Button/styles/normal = SubResource("StyleBoxFlat_15hc4")

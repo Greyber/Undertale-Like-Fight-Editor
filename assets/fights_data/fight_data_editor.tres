@@ -32,7 +32,7 @@ data = [{
 "data": [{
 "name": "dialogue_content",
 "type": "text",
-"value": "Ey you bro"
+"value": "A donde crees que vas?"
 }],
 "time": 2.0,
 "type": 2

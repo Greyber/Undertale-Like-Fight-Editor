@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://bdjg2u0g7e0t4"]
 
 [ext_resource type="Script" uid="uid://brye8epmlv7kn" path="res://scripts/managers/character_text_manager.gd" id="1_jcaxu"]
+[ext_resource type="FontFile" uid="uid://fd23f461g3w7" path="res://assets/fonts/04B_30__.TTF" id="2_j4yqx"]
 
 [node name="TextRenderer" type="Node2D" unique_id=104651560]
 script = ExtResource("1_jcaxu")
 
 [node name="Text" type="Label" parent="." unique_id=397824179]
+texture_filter = 2
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_j4yqx")

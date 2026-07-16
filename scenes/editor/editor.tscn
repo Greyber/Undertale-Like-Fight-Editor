@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dawf2wuvv76yn"]
 
 [ext_resource type="Script" uid="uid://cywodnqa2khix" path="res://scripts/editor_scripts/editor_main.gd" id="1_ekl7j"]
-[ext_resource type="PackedScene" uid="uid://bo8afbwix1vty" path="res://scenes/editor_scenes/time_line.tscn" id="2_d8xkh"]
-[ext_resource type="PackedScene" uid="uid://bu1b8l3of0122" path="res://scenes/editor_scenes/atributes_menu.tscn" id="2_yri6e"]
+[ext_resource type="PackedScene" uid="uid://bo8afbwix1vty" path="res://scenes/editor/time_line.tscn" id="2_d8xkh"]
+[ext_resource type="PackedScene" uid="uid://bu1b8l3of0122" path="res://scenes/editor/atributes_menu.tscn" id="2_yri6e"]
 [ext_resource type="Script" uid="uid://22yri6nfrsr8" path="res://scripts/editor_scripts/game_area_reference.gd" id="3_lyr7k"]
 [ext_resource type="PackedScene" uid="uid://dh6qpgw1bxecq" path="res://scenes/managers/fight_arena_manager.tscn" id="5_py4t4"]
 [ext_resource type="Script" uid="uid://3o3y4qdohs3b" path="res://scripts/editor_scripts/preview_manager.gd" id="5_siafb"]

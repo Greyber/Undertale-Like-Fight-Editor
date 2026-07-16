@@ -9,6 +9,7 @@ func _ready() -> void:
 	EventManager.ON_SELECTED_EVENT_EDITOR.connect(handle_selected_event)
 	
 func handle_selected_event(_event):
+	Globals.selected_event = _event
 	clear(_event)
 	for property in _event.data:
 		if property['type'] == "text" or property['type'] == "float" or property['type'] == "int":

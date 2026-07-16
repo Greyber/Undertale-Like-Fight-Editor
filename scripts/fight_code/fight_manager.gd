@@ -40,7 +40,7 @@ func _evaluate_timeline_at(t:float) -> void:
 				$FightCharacterManager.spawn_npc(event['npc_name'])
 				$FightCharacterManager.move_npc(event['npc_position'])
 			Globals.EventTypes.SPAWN_PROYECTILE:
-				PoolManager.request_queue(event['entity'])
+				$FightProyectileManager.spawn_proyectile(event)
 			Globals.EventTypes.CHANGE_ARENA:
 				$FightArenaManager.set_arena_size(event['arena_size'])
 				$FightArenaManager.set_arena_position(event['arena_position'])

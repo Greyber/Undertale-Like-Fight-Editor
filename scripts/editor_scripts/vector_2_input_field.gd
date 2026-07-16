@@ -13,8 +13,9 @@ func set_value(_value, property_name):
 func _on_line_edit_text_changed(new_text: String) -> void:
 	value.x = float(new_text)
 	target['value'] = value
+	EventManager.ON_CHANGE_EVENT_EDITOR.emit()
 	
 func _on_line_edit_2_text_changed(new_text: String) -> void:
 	value.y = float(new_text)
 	target['value'] = value
-	
+	EventManager.ON_CHANGE_EVENT_EDITOR.emit()

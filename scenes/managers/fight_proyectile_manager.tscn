@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ca2mp31nktrkk"]
+
+[ext_resource type="Script" uid="uid://bfpenk31c86qc" path="res://scripts/fight_code/fight_proyectile_manager.gd" id="1_xxr4h"]
+
+[node name="FightProyectileManager" type="Node2D" unique_id=195571031]
+script = ExtResource("1_xxr4h")
