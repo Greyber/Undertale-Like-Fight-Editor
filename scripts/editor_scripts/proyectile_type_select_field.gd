@@ -1,61 +1,41 @@
 extends Control
 
-var text_input_field_scene : PackedScene = preload("res://scenes/editor_scenes/text_input_field.tscn")
-var vector2_input_field_scene : PackedScene = preload("res://scenes/editor_scenes/vector_2_input_field.tscn")
-var time_input_scene : PackedScene = preload("res://scenes/editor_scenes/time_input_field.tscn")
-var proyectile_type_selector_scene : PackedScene = preload("res://scenes/editor_scenes/proyectile_type_select_field.tscn")
+var text_input_field_scene : PackedScene = preload("res://scenes/editor/text_input_field.tscn")
+var vector2_input_field_scene : PackedScene = preload("res://scenes/editor/vector_2_input_field.tscn")
+var time_input_scene : PackedScene = preload("res://scenes/editor/time_input_field.tscn")
+var proyectile_type_selector_scene : PackedScene = preload("res://scenes/editor/proyectile_type_select_field.tscn")
 
-var event_scene : PackedScene = preload("res://scenes/editor_scenes/event.tscn")
+var event_scene : PackedScene = preload("res://scenes/editor/event.tscn")
 
 var option_button : OptionButton
+var fields_container : VBoxContainer
 var target : Event
 
 var proyectiles : Dictionary = {
-		"proyectile1": [],
-		"proyectile2": [{"name":"proyectile_position","type": "Vector2", "value":Vector2.ZERO}],
-		"proyectile3": [{"name":"proyectile_position","type": "Vector2", "value":Vector2.ZERO}, {"name":"proyectile_rotation","type": "float", "value":0}]
+		"proyectile_1": [],
+		"proyectile_2": [{"name":"proyectile_position","type": "Vector2", "value":Vector2.ZERO}],
+		"proyectile_3": [{"name":"proyectile_position","type": "Vector2", "value":Vector2.ZERO}, {"name":"proyectile_rotation","type": "float", "value":0}]
 }
 
-var items = {0:"proyectile1", 1:"proyectile2", 2:"proyectile3"}
+var text_to_index : Dictionary = {"proyectile_1":0, "proyectile_2":1, "proyectile_3":2}
 
 func _ready() -> void:
 	option_button = $OptionButton
-	target = Event.new()
+	fields_container = $VBoxContainer
+	_set_value()
 	
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("click"):
-		print(target.data)
+#func _process(_delta: float) -> void:
+	#if Input.is_action_just_pressed("click"):
+		#print(target.data)
 
-func set_value(_value):
-	pass
+func _set_value() -> void:
+	var index : int = text_to_index[target.data[0]['value']]
+	option_button.selected = index
 
 func _on_option_button_item_selected(index: int) -> void:
-	target.data = [{"name":"npc_position","type": "selector", "value":""}] 
-	for child in $VBoxContainer.get_children():
+	target.data = [{"name":"proyectile_name","type": "selector", "value":option_button.get_item_text(index)}] 
+	for child in fields_container.get_children():
 		child.queue_free()
-	for property in proyectiles[items[index]]:
-		var property_dup : Dictionary = property.duplicate()
-		target.data.append(property_dup)
-		if property['type'] == "text":
-			var text_input = text_input_field_scene.instantiate()
-			text_input.target = property_dup
-			text_input.type = "text"
-			text_input.set_value(property['value'], property['name'])
-			$VBoxContainer.add_child(text_input)
-		elif property['type'] == "float":
-			var text_input = text_input_field_scene.instantiate()
-			text_input.target = property_dup
-			text_input.type = "float"
-			text_input.set_value(property['value'], property['name'])
-			$VBoxContainer.add_child(text_input)
-		elif property['type'] == "int":
-			var text_input = text_input_field_scene.instantiate()
-			text_input.target = property_dup
-			text_input.type = "int"
-			text_input.set_value(property['value'], property['name'])
-			$VBoxContainer.add_child(text_input)
-		elif property['type'] == 'Vector2':
-			var vector2_input = vector2_input_field_scene.instantiate()
-			vector2_input.target = property_dup
-			vector2_input.set_value(property['value'], property['name'])
-			$VBoxContainer.add_child(vector2_input)
+	for property in proyectiles[option_button.get_item_text(index)]:
+		FieldFactory.create_field(property, fields_container)
+		target.data.append(property)

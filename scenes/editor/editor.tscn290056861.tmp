@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://dawf2wuvv76yn"]
+
+[ext_resource type="Script" uid="uid://cywodnqa2khix" path="res://scripts/editor_scripts/editor_main.gd" id="1_ekl7j"]
+[ext_resource type="PackedScene" uid="uid://bo8afbwix1vty" path="res://scenes/editor/time_line.tscn" id="2_d8xkh"]
+[ext_resource type="PackedScene" uid="uid://bu1b8l3of0122" path="res://scenes/editor/atributes_menu.tscn" id="2_yri6e"]
+[ext_resource type="Script" uid="uid://22yri6nfrsr8" path="res://scripts/editor_scripts/game_area_reference.gd" id="3_lyr7k"]
+[ext_resource type="PackedScene" uid="uid://dh6qpgw1bxecq" path="res://scenes/managers/fight_arena_manager.tscn" id="5_py4t4"]
+[ext_resource type="Script" uid="uid://3o3y4qdohs3b" path="res://scripts/editor_scripts/preview_manager.gd" id="5_siafb"]
+[ext_resource type="Script" uid="uid://b2nek0x1fvbd6" path="res://scripts/editor_scripts/rect_helper.gd" id="5_u727f"]
+[ext_resource type="PackedScene" uid="uid://dxvbt0a4g800b" path="res://scenes/managers/fight_character_manager.tscn" id="6_rhxrw"]
+
+[node name="Editor" type="Control" unique_id=827920516]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekl7j")
+
+[node name="AtributesMenu" parent="." unique_id=1930480682 instance=ExtResource("2_yri6e")]
+layout_mode = 1
+
+[node name="TimeLine" parent="." unique_id=558596005 instance=ExtResource("2_d8xkh")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 427.0
+offset_right = 923.0
+offset_bottom = 647.0
+
+[node name="CenterScreen" type="Control" parent="." unique_id=1804919561]
+layout_mode = 1
+anchor_right = 0.8
+anchor_bottom = 0.66
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterScreen" unique_id=400338372]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameAreaReference" type="Panel" parent="CenterScreen/CenterContainer" unique_id=870062536]
+custom_minimum_size = Vector2(533, 300)
+layout_mode = 2
+script = ExtResource("3_lyr7k")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CenterScreen/CenterContainer/GameAreaReference" unique_id=1397201434]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 627.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.45)
+
+[node name="SubViewport" type="SubViewport" parent="CenterScreen/CenterContainer/GameAreaReference/SubViewportContainer" unique_id=525040640]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+script = ExtResource("5_siafb")
+
+[node name="FightArenaManager" parent="CenterScreen/CenterContainer/GameAreaReference/SubViewportContainer/SubViewport" unique_id=1300056682 instance=ExtResource("5_py4t4")]
+
+[node name="FightCharacterManager" parent="CenterScreen/CenterContainer/GameAreaReference/SubViewportContainer/SubViewport" unique_id=921733944 instance=ExtResource("6_rhxrw")]
+
+[node name="RectHelper" type="Control" parent="." unique_id=320810995]
+process_mode = 4
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_u727f")
+
+[node name="FixedLabel" type="Label" parent="RectHelper" unique_id=932821686]
+layout_mode = 0
+offset_left = 733.0
+offset_right = 773.0
+offset_bottom = 23.0
+
+[node name="Rect" type="Control" parent="RectHelper" unique_id=1069041627]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MouseLabel" type="Label" parent="RectHelper/Rect" unique_id=1808613576]
+z_index = 3
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ColorRect" type="ColorRect" parent="RectHelper/Rect" unique_id=729289326]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.35546058, 0.4572059, 0.27593693, 1)
+
+[node name="ImportButton" type="Button" parent="." unique_id=504388719]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 31.0
+text = "import data"
+
+[node name="MeasureSizeButton" type="Button" parent="." unique_id=921870379]
+layout_mode = 0
+offset_left = 106.0
+offset_right = 182.0
+offset_bottom = 31.0
+toggle_mode = true
+text = "Measure"
+
+[node name="GetPositionButton" type="Button" parent="." unique_id=1083224278]
+layout_mode = 0
+offset_left = 187.0
+offset_right = 287.0
+offset_bottom = 31.0
+toggle_mode = true
+text = "get position"
+
+[node name="MPos" type="Label" parent="." unique_id=1781804884]
+layout_mode = 0
+offset_left = 640.0
+offset_right = 718.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="ImportButton" to="." method="_on_import_button_pressed"]
+[connection signal="toggled" from="MeasureSizeButton" to="RectHelper" method="_on_measure_size_button_toggled"]
+[connection signal="toggled" from="GetPositionButton" to="CenterScreen/CenterContainer/GameAreaReference" method="_on_get_position_button_toggled"]

@@ -25,8 +25,12 @@ func set_instant(new_position, new_size) -> void:
 
 func set_arena_size(new_target_size: Vector2) -> void:
 	target_size = new_target_size
-	#Globals.arena_size = target_size
+	Globals.arena_size = target_size
 	
 func set_arena_position(new_target_position: Vector2) -> void :
 	target_position = new_target_position
-	#Globals.arena_position = target_position
+	Globals.arena_position = target_position
+
+func reset() -> void:
+	target_position = Vector2(-100, -100)
+	target_size =  Vector2.ZERO

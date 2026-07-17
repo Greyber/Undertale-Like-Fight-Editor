@@ -26,3 +26,7 @@ func write_character() -> void:
 	
 func set_text_position(new_position:Vector2) -> void:
 	text_node.position = new_position
+
+func reset() -> void:
+	text = ""
+	text_node.text = text

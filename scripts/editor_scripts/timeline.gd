@@ -1,6 +1,6 @@
 extends Control
 
-var event_scene : PackedScene = preload("res://scenes/editor_scenes/event.tscn")
+var event_scene : PackedScene = preload("res://scenes/editor/event.tscn")
 
 var id_increment = 0
 
@@ -17,7 +17,7 @@ var lines : Array = []
 var EVENT_DATA_FORM  : Dictionary = {
 	Globals.EventTypes.SPAWN_PROYECTILE:{
 		"label" : "spawn_proyectile",
-		"properties": [{"name":"npc_position","type": "selector", "value":""}]
+		"properties": [{"name":"proyectile_name","type": "selector", "value":"proyectile_1"}]
 	},
 	Globals.EventTypes.SPAWN_NPC:{
 		"label": "spawn_npc",
@@ -80,8 +80,9 @@ func add_event(_position : Vector2, _is_index : bool = false, _data = null) -> v
 		data = _data
 	else:
 		time = (_position.x - $HBoxContainer/TimeLineInner.position.x + $HBoxContainer/TimeLineInner.scroll_horizontal) / 100
-		line_index = int((_position.y - position.y + $HBoxContainer/TimeLineInner.scroll_vertical)/ LINE_H)
-		if line_index < 0: return
+		var mouse_relative_pos = _position.y - position.y + $HBoxContainer/TimeLineInner.scroll_vertical
+		if mouse_relative_pos < 0: return
+		line_index = int((mouse_relative_pos)/ LINE_H)
 		data = EVENT_DATA_FORM[line_index]['properties']
 
 	var event : Event = event_scene.instantiate()

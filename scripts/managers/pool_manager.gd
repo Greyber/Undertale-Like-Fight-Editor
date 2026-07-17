@@ -1,7 +1,7 @@
 extends Node
 
-var proyectile_1 : PackedScene = preload("uid://cj1uehjc7vq7f")
-var proyectile_2 : PackedScene = preload("uid://be4ya6w2as7l4")
+var proyectile_1 : PackedScene = preload("res://scenes/proyectiles/proyectile_1.tscn")
+var proyectile_2 : PackedScene = preload("res://scenes/proyectiles/proyectile_2.tscn")
 
 var pools : Dictionary[String, Array] = {'proyectile_1':[], "proyectile_2":[]}
 
@@ -22,5 +22,5 @@ func request_queue(obj_type) -> BaseProyectile:
 				proyectile = proyectile_1.instantiate()
 			"proyectile_2":
 				proyectile = proyectile_2.instantiate()
-		add_child(proyectile_2.instantiate())
+		add_child(proyectile)
 	return proyectile

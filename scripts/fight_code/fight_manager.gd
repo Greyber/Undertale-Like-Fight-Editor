@@ -16,13 +16,15 @@ func _ready() -> void:
 	
 func set_timeline(new_timeline: FightData) -> void:
 	timeline = new_timeline
-	original_timeline = new_timeline.duplicate()
+	original_timeline = new_timeline.duplicate(true)
 	sort_timeline()
 	
 func sort_timeline() -> void:
 	timeline.data.sort_custom(func(a, b): return a['time'] < b['time'])
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset"):
+		reset()
 	if state == States.RUNNING:
 		time+= delta
 		_evaluate_timeline_at(time)
@@ -33,7 +35,7 @@ func _process(delta: float) -> void:
 		_pause()
 
 func _evaluate_timeline_at(t:float) -> void:
-	for event in timeline.data.duplicate():
+	for event in timeline.data.duplicate(true):
 		if t < event['time']: return
 		match event['type']:
 			Globals.EventTypes.SPAWN_NPC:
@@ -67,5 +69,13 @@ func _evaluate_timeline_at(t:float) -> void:
 func _pause() -> void:
 	state = States.WAITING
 
-func _run():
+func _run() -> void:
 	state = States.RUNNING
+
+func reset() -> void:
+	time = 0
+	timeline = original_timeline.duplicate(true)
+	$FightArenaManager.reset()
+	$FightCharacterManager.reset()
+	$TextRenderer.reset()
+	Globals.player.visible = false

@@ -8,18 +8,16 @@ func _process(_delta: float) -> void:
 		export_data()
 
 func export_data() -> void:
-	for line in $TimeLine.lines:
-		for event in line.get_children():
-			if not event is Event: continue 
-			var event_data : Dictionary
-			event_data['type'] = event.type
-			event_data['time'] = event.time
-			for propertie in event.data:
-				event_data[propertie['name']] = propertie['value']
-			fight_data.data.append(event_data)
+	for event in $TimeLine.events:
+		var event_data : Dictionary
+		event_data['type'] = event.type
+		event_data['time'] = event.time
+		for propertie in event.data:
+			event_data[propertie['name']] = propertie['value']
+		fight_data.data.append(event_data)
 			
-			var event_data_for_editor : Dictionary= {'type': event.type, "time": event.time, "data":event.data}
-			fight_data_editor.data.append(event_data_for_editor)
+		var event_data_for_editor : Dictionary= {'type': event.type, "time": event.time, "data":event.data}
+		fight_data_editor.data.append(event_data_for_editor)
 			
 	var path : String = "res://assets/fights_data/fight_data.tres"
 	var path2 : String = "res://assets/fights_data/fight_data_editor.tres"

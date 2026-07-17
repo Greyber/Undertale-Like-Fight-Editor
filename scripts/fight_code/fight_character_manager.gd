@@ -46,3 +46,7 @@ func take_damage() -> void:
 	$AnimationPlayer.play()
 	get_tree().create_timer(0.5).timeout.connect(func():EventManager.CONTINUE_TIMELINE.emit())
 	
+func reset() -> void:
+	target_position = Vector2(-100, -100)
+	$Character.position = target_position
+	

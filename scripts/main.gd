@@ -6,6 +6,7 @@ func _ready() -> void:
 func load_fight_data() -> void:
 	var path : String = "res://assets/fights_data/fight_data.tres"
 	var fight_data = ResourceLoader.load(path) as FightData
+	print(fight_data.data)
 	if fight_data == null: print('error')
 	$FightManager.set_timeline(fight_data)
 	Globals.player_health_label = $PlayerHealth
