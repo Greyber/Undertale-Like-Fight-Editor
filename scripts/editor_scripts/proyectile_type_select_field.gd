@@ -1,12 +1,5 @@
 extends Control
 
-var text_input_field_scene : PackedScene = preload("res://scenes/editor/text_input_field.tscn")
-var vector2_input_field_scene : PackedScene = preload("res://scenes/editor/vector_2_input_field.tscn")
-var time_input_scene : PackedScene = preload("res://scenes/editor/time_input_field.tscn")
-var proyectile_type_selector_scene : PackedScene = preload("res://scenes/editor/proyectile_type_select_field.tscn")
-
-var event_scene : PackedScene = preload("res://scenes/editor/event.tscn")
-
 var option_button : OptionButton
 var fields_container : VBoxContainer
 var target : Event
@@ -14,7 +7,7 @@ var target : Event
 var proyectiles : Dictionary = {
 		"proyectile_1": [],
 		"proyectile_2": [{"name":"proyectile_position","type": "Vector2", "value":Vector2.ZERO}],
-		"proyectile_3": [{"name":"proyectile_position","type": "Vector2", "value":Vector2.ZERO}, {"name":"proyectile_rotation","type": "float", "value":0}]
+		"proyectile_3": []
 }
 
 var text_to_index : Dictionary = {"proyectile_1":0, "proyectile_2":1, "proyectile_3":2}

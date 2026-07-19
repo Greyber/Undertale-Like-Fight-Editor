@@ -11,7 +11,6 @@ var zoom : float = 1
 var offset : float = 0
 var events : Array = []
 var dragging : bool = false
-var event_type_to_create = Globals.EventTypes.SPAWN_NPC
 var lines : Array = []
 
 var EVENT_DATA_FORM  : Dictionary = {
@@ -68,6 +67,15 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.double_click:
 		add_event(event.position)
+	if Input.is_action_just_pressed("delete"):
+		delete_event()
+		
+func delete_event() -> void:
+	if not Globals.selected_event: return
+	events.erase(Globals.selected_event)
+	Globals.selected_event.queue_free()
+	Globals.selected_event = null
+	$"../AtributesMenu".clear()
 
 func add_event(_position : Vector2, _is_index : bool = false, _data = null) -> void:
 	var time : float

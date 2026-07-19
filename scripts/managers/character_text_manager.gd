@@ -13,9 +13,11 @@ func start_writing(new_text:String) -> void:
 	text = new_text
 	text_node.text = ""
 	current_index = 0
+	writing = true
 	write_character()
 
 func write_character() -> void:
+	if not writing: return
 	text_node.text = text_node.text + text[current_index]
 	current_index += 1
 	if current_index < text.length():
@@ -30,3 +32,4 @@ func set_text_position(new_position:Vector2) -> void:
 func reset() -> void:
 	text = ""
 	text_node.text = text
+	writing = false

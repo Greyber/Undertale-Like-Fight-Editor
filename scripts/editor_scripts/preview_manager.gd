@@ -10,8 +10,9 @@ func _ready() -> void:
 	EventManager.ON_SELECTED_EVENT_EDITOR.connect(_on_selected_event)
 	EventManager.ON_CHANGE_EVENT_EDITOR.connect(_on_selected_event)
 
-func _on_selected_event(_event : Event = null):
+func _on_selected_event():
 	var event : Event = Globals.selected_event
+	if not event: return
 	if event.type == Globals.EventTypes.CHANGE_ARENA:
 		arena_manager.set_instant(event.data[0]['value'], event.data[1]['value'])
 	elif event.type == Globals.EventTypes.SPAWN_NPC:

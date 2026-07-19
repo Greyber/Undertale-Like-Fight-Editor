@@ -5,14 +5,6 @@
 [ext_resource type="FontFile" uid="uid://fd23f461g3w7" path="res://assets/fonts/04B_30__.TTF" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://crh7g4l8p04fh" path="res://scenes/managers/fight_manager.tscn" id="5_tbgi4"]
 
-[sub_resource type="Gradient" id="Gradient_tbgi4"]
-colors = PackedColorArray(0, 0, 0, 0, 0.17254902, 0, 0.1764706, 0.5019608)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_u5bk5"]
-gradient = SubResource("Gradient_tbgi4")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [sub_resource type="Gradient" id="Gradient_jyhfs"]
 colors = PackedColorArray(0.14446527, 0.00021088489, 0.380838, 1, 0.78912026, 0.522685, 1, 1)
 
@@ -20,6 +12,14 @@ colors = PackedColorArray(0.14446527, 0.00021088489, 0.380838, 1, 0.78912026, 0.
 gradient = SubResource("Gradient_jyhfs")
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_tbgi4"]
+colors = PackedColorArray(0, 0, 0, 0, 0.17254902, 0, 0.1764706, 0.5019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u5bk5"]
+gradient = SubResource("Gradient_tbgi4")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Main" type="Node2D" unique_id=1129719108]
 script = ExtResource("1_o5qli")
@@ -35,12 +35,6 @@ theme_override_colors/font_color = Color(0.9999998, 0.4785425, 0.7246258, 1)
 theme_override_fonts/font = ExtResource("4_jyhfs")
 theme_override_font_sizes/font_size = 50
 text = "100"
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1386661296]
-z_index = 1
-position = Vector2(576, 324)
-scale = Vector2(18, 10.125)
-texture = SubResource("GradientTexture2D_u5bk5")
 
 [node name="BackGround" type="Control" parent="." unique_id=272386526]
 z_index = -100
@@ -59,6 +53,12 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_kddjp")
+
+[node name="BackgroundDarkGradient" type="Sprite2D" parent="." unique_id=1386661296]
+z_index = 1
+position = Vector2(576, 324)
+scale = Vector2(18, 10.125)
+texture = SubResource("GradientTexture2D_u5bk5")
 
 [node name="Player" parent="." unique_id=655997638 instance=ExtResource("3_sugp2")]
 visible = false

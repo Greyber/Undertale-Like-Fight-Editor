@@ -14,7 +14,6 @@ func reset_values() -> void:
 	position.y = randf_range(Globals.arena_position.y, Globals.arena_position.y + Globals.arena_size.y)
 	visible = true
 
-
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body == Globals.player:
 		EventManager.ON_PLAYER_TAKE_DAMAGE.emit()

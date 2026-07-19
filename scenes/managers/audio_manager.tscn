@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c2novpms070me"]
+
+[ext_resource type="Script" uid="uid://d0x68oyluluhh" path="res://scripts/managers/audio_manager.gd" id="1_aybmh"]
+[ext_resource type="Resource" uid="uid://dl0q21gjg16mb" path="res://audio/game_audio.tres" id="2_n7lsv"]
+
+[node name="AudioManager" type="Node2D" unique_id=1450007813]
+script = ExtResource("1_aybmh")
+tracks = ExtResource("2_n7lsv")

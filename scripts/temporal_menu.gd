@@ -1,8 +1,9 @@
 extends Node2D
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
@@ -12,10 +13,8 @@ func _input(event: InputEvent) -> void:
 			$Main.process_mode = Node.PROCESS_MODE_DISABLED
 			$Main.visible = false
 		elif event.keycode == 50:
-			$Main.process_mode = Node.PROCESS_MODE_ALWAYS
-			$Main.visible = true
 			$EditorContainer.process_mode = Node.PROCESS_MODE_DISABLED
 			$EditorContainer.visible = false
-
-func _process(_delta: float) -> void:
-	pass
+			$Main.process_mode = Node.PROCESS_MODE_ALWAYS
+			$Main.visible = true
+	

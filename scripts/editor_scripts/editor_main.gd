@@ -6,6 +6,8 @@ var fight_data_editor : FightData = FightData.new()
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("save"):
 		export_data()
+	if Input.is_action_just_pressed("deselect"):
+		Globals.selected_event = null
 
 func export_data() -> void:
 	for event in $TimeLine.events:
